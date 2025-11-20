@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food receipe</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Recipe Manager</h1>
+        <p>Eat then Repeat</p>
+        <a href="add-edit.html" class="btn">Add Recipe</a>
+    </header>
+
+    <section class="filters">
+        <input type="text" id="search" placeholder="Search by title...">
+
+        <select id="difficultyFilter">
+            <option value="All">All</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+
+        <input type="number" id="maxPrepTime" placeholder="Max time (mins)">
+    </section>
+
+
+    <main id="recipe-list" class="grid"></main>
+
+    <script src="/js/storage.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/home.js"></script>
+    <script>
+        initHome();   
+    </script>
+
+</body>
+
+</html>

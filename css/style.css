@@ -1,0 +1,294 @@
+/* ----------------------------------
+   GLOBAL STYLES
+---------------------------------- */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ----------------------------------
+   HEADER
+---------------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #4091a5;
+  color: #fff;
+  height: 200px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ----------------------------------
+   BUTTONS
+---------------------------------- */
+.btn,
+button {
+  padding: 0.6rem 1.2rem;
+  background: #f76c6c;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn {
+  background: #fff;
+  color: #0a97b7;
+  border: 2px solid #2c97a5;
+}
+
+.btn:hover,
+button:hover {
+  background: #f44336;
+  color: #fff;
+}
+
+/* ----------------------------------
+   GRID
+---------------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* ----------------------------------
+   CARD
+---------------------------------- */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-content p {
+  margin: 0.4rem 0;
+}
+
+/* ----------------------------------
+   FILTERS
+---------------------------------- */
+.filters {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 180px;
+  background: #fff;
+  transition: 0.2s ease;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: #f76c6c;
+  box-shadow: 0 0 5px rgba(247, 108, 108, 0.4);
+}
+
+/* ----------------------------------
+   FORM
+---------------------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: #fff;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+form input,
+form textarea,
+form select {
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-top: 0.4rem;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #f76c6c;
+  box-shadow: 0 0 5px rgba(247, 108, 108, 0.4);
+}
+
+/* ----------------------------------
+   ERROR MESSAGE
+---------------------------------- */
+.error {
+  color: #ff3d3d;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+}
+
+/* ----------------------------------
+   RECIPE DETAIL PAGE
+---------------------------------- */
+
+#recipe-detail {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Recipe Title */
+#recipe-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #f76c6c;
+}
+
+/* Main Recipe Image */
+#recipe-detail img {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Info Row (Time, Difficulty etc.) */
+.recipe-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0 2rem 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.8rem 0;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Ingredients List */
+.ingredients-list,
+.steps-list {
+  background: #fafafa;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f76c6c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* List Items */
+.ingredients-list li,
+.steps-list li {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.steps-list li {
+  margin-bottom: 1rem;
+}
+
+/* Buttons Row */
+.detail-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Edit Button */
+.detail-buttons .btn-edit {
+  background: #ffb347;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.detail-buttons .btn-edit:hover {
+  background: #ff9800;
+}
+
+/* Delete Button */
+.detail-buttons .btn-delete {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.detail-buttons .btn-delete:hover {
+  background: #e60000;
+}

@@ -1,0 +1,61 @@
+function displayRecipes(recipes) {
+  const list = document.getElementById("recipe-list");
+  list.innerHTML = "";
+
+  if (!recipes.length) {
+    list.innerHTML = "<p>No recipes found.</p>";
+    return;
+  }
+
+  recipes.forEach((recipe) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+            <img src="${
+              recipe.image || "https://via.placeholder.com/300x150"
+            }" alt="${recipe.title}">
+            <div class="card-content">
+                <h3>${recipe.title}</h3>
+                <p>${recipe.description.substring(0, 50)}...</p>
+                <p>⏱ ${recipe.prepTime} mins | ⭐ ${recipe.difficulty}</p>
+                <a href="receipe.html?id=${recipe.id}" class="btn">View</a>
+            </div>
+        `;
+    list.appendChild(card);
+  });
+}
+
+function applyFilters() {
+  let recipes = getRecipes();
+
+  const search = document.getElementById("search").value.toLowerCase();
+  const diff = document.getElementById("difficultyFilter").value;
+  const maxTime = Number(document.getElementById("maxPrepTime").value);
+
+  recipes = recipes.filter((r) => r.title.toLowerCase().includes(search));
+
+  if (diff !== "All") {
+    recipes = recipes.filter((r) => r.difficulty === diff);
+  }
+
+  if (maxTime > 0) {
+    recipes = recipes.filter((r) => r.prepTime <= maxTime);
+  }
+
+  displayRecipes(recipes);
+}
+function initHome() {
+  preloadInitialRecipes();
+
+  displayRecipes(getRecipes());
+
+  document.getElementById("search").addEventListener("input", applyFilters);
+  document
+    .getElementById("difficultyFilter")
+    .addEventListener("change", applyFilters);
+  document
+    .getElementById("maxPrepTime")
+    .addEventListener("input", applyFilters);
+}
+
+initHome();
