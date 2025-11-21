@@ -52,6 +52,11 @@ header h1 {
   letter-spacing: 1px;
 }
 
+.header-icon {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
 /* ----------------------------------
    BUTTONS
 ---------------------------------- */
