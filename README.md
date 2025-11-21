@@ -25,7 +25,7 @@ Small single-page recipe manager that uses localStorage to persist recipes and v
   - [storage.js](js/storage.js)
 - receipe-manager/ (extra folder)
 
-## Files you worked on (high level)
+## Files I worked on (high level)
 
 - Page logic and forms
   - Form initialization & submit handling: [`initForm`](js/add-edit.js) — [js/add-edit.js](js/add-edit.js)
@@ -35,7 +35,7 @@ Small single-page recipe manager that uses localStorage to persist recipes and v
   - Core storage helpers and seed data: [`getRecipes`](js/app.js), [`saveRecipes`](js/app.js), [`preloadInitialRecipes`](js/app.js), [`getRecipeById`](js/app.js), [`addRecipe`](js/app.js), [`updateRecipe`](js/app.js), [`deleteRecipe`](js/app.js) — [js/app.js](js/app.js)
   - There is an alternate/duplicate implementation in [js/storage.js](js/storage.js) providing [`getRecipes`](js/storage.js), [`saveRecipes`](js/storage.js), [`preloadInitialRecipes`](js/storage.js)
 
-## CSS — small details you implemented / are using
+## CSS — small details I implemented / are using
 
 See [css/style.css](css/style.css) for full rules. Notable points:
 
@@ -47,7 +47,7 @@ See [css/style.css](css/style.css) for full rules. Notable points:
 - Filters area: responsive layout with inputs and select styled for focus/hover.
 - Mobile tweaks via media queries for filters and footer readability.
 
-## LocalStorage — what you used & learned
+## LocalStorage — what I used & learned
 
 - All recipes are stored under the key `"recipes"` as a JSON string.
   - Primary helpers: [`getRecipes`](js/app.js) / [`getRecipes`](js/storage.js) and [`saveRecipes`](js/app.js) / [`saveRecipes`](js/storage.js).
@@ -72,3 +72,11 @@ See [css/style.css](css/style.css) for full rules. Notable points:
 - Consider small UX additions: confirm modal before delete, image placeholders for missing images.
 
 ---
+
+## Known Issues
+
+Error Handling: While the app gracefully handles corrupted localStorage, it might not recover from significant issues in the storage data. Always ensure the data structure remains consistent.
+
+UI Layout: The layout might not look great on very small screen sizes, especially when many recipes are listed.
+
+Image URLs: If an invalid or broken image URL is provided, the recipe card may not display the image.
