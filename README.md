@@ -79,4 +79,6 @@ Error Handling: While the app gracefully handles corrupted localStorage, it migh
 
 UI Layout: The layout might not look great on very small screen sizes, especially when many recipes are listed.
 
+UI Layout for second card: The second card has issue, It automatically shows the card 1 details even It is removed from local storage as well as the data storage file.
+
 Image URLs: If an invalid or broken image URL is provided, the recipe card may not display the image.
