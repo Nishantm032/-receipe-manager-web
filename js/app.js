@@ -69,17 +69,6 @@ function preloadInitialRecipes() {
         difficulty: "Easy",
         image: "./images/rajasthani dal.jpg",
       },
-
-      {
-        id: Date.now() + 1,
-        title: "Paneer Butter Masala",
-        description: "Creamy, rich paneer curry.",
-        ingredients: ["Paneer", "Butter", "Tomatoes", "Cream", "Spices"],
-        steps: ["Sauté masala", "Add tomato puree", "Cook paneer", "Serve hot"],
-        prepTime: 35,
-        difficulty: "Medium",
-        image: "./images/panner butter masala.jpg",
-      },
       {
         id: Date.now() + 2,
         title: "Aloo Paratha",
@@ -123,7 +112,7 @@ function preloadInitialRecipes() {
           "Serve hot with raita",
         ],
         prepTime: 60,
-        difficulty: "Medium",
+        difficulty: "Hard",
         image: "./images/veg-biryani.jpg",
       },
       {
@@ -190,7 +179,7 @@ function preloadInitialRecipes() {
           "Simmer and serve with rice",
         ],
         prepTime: 50,
-        difficulty: "Medium",
+        difficulty: "Hard",
         image: "./images/rajma-masala.jpg",
       },
     ];

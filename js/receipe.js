@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="recipe-full-card">
             <h2>${recipe.title}</h2>
             <img src="${
-              recipe.image || "https://via.placeholder.com/400x200"
+              recipe.image ||
+              "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=60"
             }" alt="${recipe.title}">
 
             <p><strong>Difficulty:</strong> ${recipe.difficulty}</p>

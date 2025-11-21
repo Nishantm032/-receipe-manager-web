@@ -1,17 +1,34 @@
 /* ----------------------------------
    GLOBAL STYLES
 ---------------------------------- */
+
 body {
   font-family: "Poppins", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fafafa;
   color: #333;
   line-height: 1.6;
+
+  /* Stylish gradient background */
+  background: linear-gradient(135deg, #fdfbfb, #ebedee, #d6e3f0, #f9d6e3);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
 
 a {
   text-decoration: none;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* ----------------------------------
@@ -22,9 +39,9 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #4091a5;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
   color: #fff;
-  height: 200px;
+  height: 80px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -38,11 +55,10 @@ header h1 {
 /* ----------------------------------
    BUTTONS
 ---------------------------------- */
-.btn,
-button {
+.btn {
   padding: 0.6rem 1.2rem;
-  background: #f76c6c;
-  color: #fff;
+
+  color: #0e867e;
   border-radius: 6px;
   border: none;
   font-weight: 600;
@@ -56,12 +72,25 @@ button {
   border: 2px solid #2c97a5;
 }
 
-.btn:hover,
-button:hover {
-  background: #f44336;
+.btn:hover {
+  background: #0e867e;
   color: #fff;
 }
-
+#submit-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #0e867e;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#add-recipe-btn {
+  background-color: #fcf259;
+  height: 20px;
+  width: 100px;
+}
 /* ----------------------------------
    GRID
 ---------------------------------- */
@@ -74,7 +103,7 @@ button:hover {
 
 /* ----------------------------------
    CARD
----------------------------------- */
+------------------------------------- */
 .card {
   background: #fff;
   border-radius: 12px;
@@ -91,7 +120,7 @@ button:hover {
 
 .card img {
   width: 100%;
-  height: 170px;
+  height: 260px;
   object-fit: cover;
 }
 
@@ -114,7 +143,7 @@ button:hover {
 ---------------------------------- */
 .filters {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1rem 2rem;
   flex-wrap: wrap;
 }
@@ -291,4 +320,31 @@ form select:focus {
 
 .detail-buttons .btn-delete:hover {
   background: #e60000;
+}
+
+/*footer */
+/* ----------------------------------
+   FOOTER
+---------------------------------- */
+.footer {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  text-align: center;
+
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: #fff;
+
+  border-radius: 5px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Responsive Text */
+@media (max-width: 600px) {
+  .footer {
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
 }

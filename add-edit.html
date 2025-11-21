@@ -18,9 +18,9 @@
         <form id="recipe-form">
             <label>Title: <input type="text" id="title"></label>
             <label>Description: <textarea id="description"></textarea></label>
-            <label>Ingredients (comma separated): <textarea id="ingredients" required></textarea></label>
-            <label>Steps (comma separated): <textarea id="steps" required></textarea></label>
-            <label>Prep Time (minutes): <input type="number" id="prepTime" required></label>
+            <label>Ingredients: <textarea id="ingredients"></textarea></label>
+            <label>Steps: <textarea id="steps"></textarea></label>
+            <label>Prep Time (minutes): <input type="number" id="prepTime"></label>
             <label>Difficulty:
                 <select id="difficulty" required>
                     <option value="Easy">Easy</option>
@@ -28,12 +28,16 @@
                     <option value="Hard">Hard</option>
                 </select>
             </label>
-            <label>Image URL (optional): <input type="url" id="image"></label>
+            <label>Image URL: <input type="url" id="image"></label>
             <div id="error" class="error"></div>
-            <button type="submit">Save Recipe</button>
+            <button id="submit-btn" type="submit">Save Recipe</button>
         </form>
 
     </main>
+
+    <footer class="footer">
+        <p>© 2025 Recipe Manager • Made with ❤️</p>
+    </footer>
 
     <script src="/js/app.js"></script>
     <script src="/js/add-edit.js"></script>
