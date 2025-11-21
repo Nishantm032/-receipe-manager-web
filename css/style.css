@@ -9,7 +9,6 @@ body {
   color: #333;
   line-height: 1.6;
 
-  /* Stylish gradient background */
   background: linear-gradient(135deg, #fdfbfb, #ebedee, #d6e3f0, #f9d6e3);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
@@ -36,13 +35,14 @@ a {
 ---------------------------------- */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #f093fb, #f5576c);
   color: #fff;
   height: 80px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  width: auto;
 }
 
 header h1 {
@@ -64,6 +64,18 @@ header h1 {
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
+}
+
+#back-btn {
+  padding: 0.6rem 1.2rem;
+
+  color: #0e867e;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-left: 35rem;
 }
 
 .btn {
@@ -115,7 +127,7 @@ header h1 {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -141,28 +153,103 @@ header h1 {
 /* ----------------------------------
    FILTERS
 ---------------------------------- */
+
 .filters {
   display: flex;
   gap: 2rem;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .filters input,
 .filters select {
-  padding: 0.7rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
   outline: none;
-  width: 180px;
+  width: 200px;
   background: #fff;
-  transition: 0.2s ease;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease-in-out;
 }
 
 .filters input:focus,
 .filters select:focus {
-  border-color: #f76c6c;
-  box-shadow: 0 0 5px rgba(247, 108, 108, 0.4);
+  box-shadow: 0 0 8px rgba(255, 126, 182, 0.3);
+  transform: translateY(-2px);
+}
+
+.filters input::placeholder {
+  color: #888;
+}
+
+.filters select {
+  cursor: pointer;
+}
+
+.filters input:hover,
+.filters select:hover {
+  background: #f1f1f1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  /* header  */
+  header {
+    margin: 0;
+  }
+  #back-btn {
+    margin-left: 3rem;
+  }
+}
+
+/* Add Recipe button inside filters */
+.filters #add-recipe-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: #fff;
+  color: #f5576c;
+  border: 2px solid #f5576c;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.filters #add-recipe-btn:hover {
+  background: #f5576c;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 /* ----------------------------------
@@ -245,7 +332,6 @@ form select:focus {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Info Row (Time, Difficulty etc.) */
 .recipe-info {
   display: flex;
   justify-content: center;
