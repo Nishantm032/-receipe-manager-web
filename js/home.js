@@ -3,7 +3,9 @@ function displayRecipes(recipes) {
   list.innerHTML = "";
 
   if (!recipes.length) {
-    list.innerHTML = "<p>No recipes found.</p>";
+    list.innerHTML = `
+      <p class="no-recipes">No recipes found</p>
+    `;
     return;
   }
 
@@ -19,7 +21,9 @@ function displayRecipes(recipes) {
                 <h3>${recipe.title}</h3>
                 <p>${recipe.description.substring(0, 50)}...</p>
                 <p>⏱ ${recipe.prepTime} mins | ⭐ ${recipe.difficulty}</p>
-                <a href="receipe.html?id=${recipe.id}" class="btn">View</a>
+                <a href="receipe.html?id=${
+                  recipe.id
+                }" class="btn view-btn">View</a>
             </div>
         `;
     list.appendChild(card);
@@ -31,20 +35,30 @@ function applyFilters() {
 
   const search = document.getElementById("search").value.toLowerCase();
   const diff = document.getElementById("difficultyFilter").value;
-  const maxTime = Number(document.getElementById("maxPrepTime").value);
+  const maxTimeInput = document.getElementById("maxPrepTime").value;
+  const maxTime = Number(maxTimeInput);
 
+  // Search filter
   recipes = recipes.filter((r) => r.title.toLowerCase().includes(search));
 
+  // Difficulty filter
   if (diff !== "All") {
     recipes = recipes.filter((r) => r.difficulty === diff);
   }
 
-  if (maxTime > 0) {
-    recipes = recipes.filter((r) => r.prepTime <= maxTime);
+  // Max Prep Time filter
+  if (maxTimeInput.trim() !== "") {
+    if (maxTime <= 0) {
+      // No negative or zero values allowed
+      recipes = [];
+    } else {
+      recipes = recipes.filter((r) => r.prepTime <= maxTime);
+    }
   }
 
   displayRecipes(recipes);
 }
+
 function initHome() {
   preloadInitialRecipes();
 

@@ -3,7 +3,6 @@ function initForm() {
   const id = params.get("id");
   const formTitle = document.getElementById("form-title");
   const form = document.getElementById("recipe-form");
-  const errorDiv = document.getElementById("error");
 
   if (id) {
     const recipe = getRecipeById(Number(id));
@@ -21,9 +20,6 @@ function initForm() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    errorDiv.textContent = "";
-
-    console.log("hi");
 
     const newRecipe = {
       id: id ? Number(id) : Date.now(),
@@ -36,19 +32,66 @@ function initForm() {
       image: form.image.value.trim(),
     };
 
-    console.log(newRecipe);
-    console.log(!newRecipe.title);
+    // ---------------------------
+    // ⭐ SweetAlert2 Validations ⭐
+    // ---------------------------
 
-    if (!newRecipe.title || !newRecipe.description) {
-      errorDiv.textContent = "Title and Description are required!";
-      console.log(errorDiv);
-      return;
+    if (!newRecipe.title) {
+      return Swal.fire({
+        icon: "warning",
+        title: "Missing Title",
+        text: "Please enter a recipe title.",
+      });
     }
+
+    if (!newRecipe.description) {
+      return Swal.fire({
+        icon: "warning",
+        title: "Missing Description",
+        text: "Description is required.",
+      });
+    }
+
+    if (!form.ingredients.value.trim()) {
+      return Swal.fire({
+        icon: "warning",
+        title: "Ingredients Required",
+        text: "Please enter at least one ingredient.",
+      });
+    }
+
+    if (!form.steps.value.trim()) {
+      return Swal.fire({
+        icon: "warning",
+        title: "Missing Steps",
+        text: "Cooking steps cannot be empty.",
+      });
+    }
+
+    if (!newRecipe.prepTime || newRecipe.prepTime <= 0) {
+      return Swal.fire({
+        icon: "warning",
+        title: "Invalid Preparation Time",
+        text: "Preparation time must be greater than 0 minutes.",
+      });
+    }
+
+    // ---------------------------
+    // ⭐ If Validation Passed ⭐
+    // ---------------------------
 
     if (id) updateRecipe(newRecipe);
     else addRecipe(newRecipe);
 
-    window.location.href = "index.html";
+    Swal.fire({
+      icon: "success",
+      title: "Recipe Saved!",
+      text: "Your recipe has been successfully saved.",
+      timer: 1300,
+      showConfirmButton: false,
+    }).then(() => {
+      window.location.href = "index.html";
+    });
   });
 }
 

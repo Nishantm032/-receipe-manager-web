@@ -1,6 +1,9 @@
 /* ----------------------------------
    GLOBAL STYLES
 ---------------------------------- */
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Poppins", Arial, sans-serif;
@@ -57,10 +60,42 @@ header h1 {
   font-size: 1.5rem;
 }
 
+/*receipe search */
+
+.no-recipes {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #555;
+  padding: 2rem 0;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .no-recipes {
+    font-size: 1.1rem;
+    padding: 1.5rem 0;
+  }
+  a#add-recipe-btn.btn {
+    width: 160px;
+    padding-left: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .no-recipes {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+  a#add-recipe-btn.btn {
+    width: 160px;
+  }
+}
+
 /* ----------------------------------
    BUTTONS
 ---------------------------------- */
-.btn {
+/*.btn {
   padding: 0.6rem 1.2rem;
 
   color: #0e867e;
@@ -107,7 +142,44 @@ header h1 {
   background-color: #fcf259;
   height: 20px;
   width: 100px;
+} */
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #f5f5f5; /* Soft light background */
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 500;
 }
+
+/* Hover Effect */
+.btn:hover {
+  background: #ffffff;
+  border-color: #ccc;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Delete button special */
+.btn.delete {
+  background: #ffe8e8;
+  border-color: #ffb8b8;
+  color: #b60000;
+}
+
+.btn.delete:hover {
+  background: #fff2f2;
+  border-color: #ff9e9e;
+  box-shadow: 0 3px 10px rgba(255, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
 /* ----------------------------------
    GRID
 ---------------------------------- */
@@ -219,6 +291,7 @@ header h1 {
   .filters {
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
   }
 
   .filters input,
@@ -226,6 +299,7 @@ header h1 {
     width: 100%;
     margin-bottom: 1rem;
   }
+
   /* header  */
   header {
     margin: 0;
@@ -256,43 +330,108 @@ header h1 {
   color: #fff;
   transform: translateY(-2px);
 }
+#difficulty {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+}
 
 /* ----------------------------------
    FORM
 ---------------------------------- */
+
+/* Form Container */
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem 2rem;
-  background: #fff;
+  max-width: 650px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 25px 30px;
   border-radius: 12px;
-  max-width: 600px;
-  margin: 2rem auto;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  animation: fadeIn 0.4s ease;
 }
 
-form label {
-  display: flex;
-  flex-direction: column;
+/* Form Heading */
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0d1117;
+  font-size: 24px;
   font-weight: 600;
 }
 
+/* Label Style */
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #0d1117;
+}
+
+/* Input & Textarea Fields */
 form input,
-form textarea,
-form select {
-  padding: 0.7rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  border-radius: 10px;
+  font-size: 15px;
   outline: none;
-  margin-top: 0.4rem;
+  transition: 0.3s ease;
 }
 
 form input:focus,
-form textarea:focus,
-form select:focus {
-  border-color: #f76c6c;
-  box-shadow: 0 0 5px rgba(247, 108, 108, 0.4);
+form textarea:focus {
+  border-color: #f39c12;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(243, 156, 18, 0.2);
+}
+
+/* Textarea Height */
+form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Submit Button */
+form button {
+  width: 100%;
+  padding: 14px 18px;
+  background: #0d1117;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background: #f39c12;
+  box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+}
+
+/* Smooth Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ----------------------------------
@@ -411,6 +550,47 @@ form select:focus {
 
 .detail-buttons .btn-delete:hover {
   background: #e60000;
+}
+
+/* back button try */
+
+#back-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 16px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Hover effect */
+#back-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive for mobile/tablet */
+@media (max-width: 768px) {
+  #back-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #back-btn {
+    bottom: 10px;
+    right: 10px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+  }
 }
 
 /*footer */
