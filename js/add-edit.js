@@ -32,10 +32,6 @@ function initForm() {
       image: form.image.value.trim(),
     };
 
-    // ---------------------------
-    // ⭐ SweetAlert2 Validations ⭐
-    // ---------------------------
-
     if (!newRecipe.title) {
       return Swal.fire({
         icon: "warning",
@@ -75,10 +71,6 @@ function initForm() {
         text: "Preparation time must be greater than 0 minutes.",
       });
     }
-
-    // ---------------------------
-    // ⭐ If Validation Passed ⭐
-    // ---------------------------
 
     if (id) updateRecipe(newRecipe);
     else addRecipe(newRecipe);

@@ -38,18 +38,14 @@ function applyFilters() {
   const maxTimeInput = document.getElementById("maxPrepTime").value;
   const maxTime = Number(maxTimeInput);
 
-  // Search filter
   recipes = recipes.filter((r) => r.title.toLowerCase().includes(search));
 
-  // Difficulty filter
   if (diff !== "All") {
     recipes = recipes.filter((r) => r.difficulty === diff);
   }
 
-  // Max Prep Time filter
   if (maxTimeInput.trim() !== "") {
     if (maxTime <= 0) {
-      // No negative or zero values allowed
       recipes = [];
     } else {
       recipes = recipes.filter((r) => r.prepTime <= maxTime);
